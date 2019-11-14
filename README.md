@@ -1,6 +1,5 @@
-## Blood Doner Management System
-
-![Blood Bank](https://miro.medium.com/max/1838/1*KJACFKJ0GKtnhgR7OmlPFA.gif)
+<center><h2>Blood Doner Management System</center>
+<div style="text-align:center"><img src="https://miro.medium.com/max/1838/1*KJACFKJ0GKtnhgR7OmlPFA.gif" /></div>
 
 ---
 **Proposal**
