@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 24, 2019 at 06:03 AM
+-- Generation Time: Nov 24, 2019 at 07:03 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -27,16 +27,90 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `bloodrepository`
 --
--- Error reading structure for table blood_bank.bloodrepository: #1146 - Table 'blood_bank.bloodrepository' doesn't exist
--- Error reading data for table blood_bank.bloodrepository: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM `blood_bank`.`bloodrepository`' at line 1
+
+CREATE TABLE `bloodrepository` (
+  `B_Bag_ID` int(5) NOT NULL,
+  `Blood_Type` varchar(3) NOT NULL,
+  `Cost` decimal(5,2) NOT NULL,
+  `S_Quantity` int(11) NOT NULL,
+  `Doner_ID` int(7) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `breceipt`
+--
+
+CREATE TABLE `breceipt` (
+  `Buyers_ID` int(7) NOT NULL,
+  `Order_ID` int(7) NOT NULL,
+  `Order_date` date NOT NULL,
+  `Blood_Type` varchar(3) NOT NULL,
+  `R_Quantity` int(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `donar`
+--
+
+CREATE TABLE `donar` (
+  `Donar_ID` int(7) NOT NULL,
+  `First_Name` varchar(20) NOT NULL,
+  `Last_Name` varchar(20) NOT NULL,
+  `Blood_Type` varchar(3) NOT NULL,
+  `DOB` date DEFAULT NULL,
+  `Gender` varchar(6) NOT NULL,
+  `Last_Donate` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `hospital`
+--
+
+CREATE TABLE `hospital` (
+  `Buyers_ID` int(7) NOT NULL,
+  `Name` varchar(20) NOT NULL,
+  `Branch` varchar(20) NOT NULL,
+  `Phone` int(13) NOT NULL,
+  `Address` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `personal`
 --
--- Error reading structure for table blood_bank.personal: #1146 - Table 'blood_bank.personal' doesn't exist
--- Error reading data for table blood_bank.personal: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM `blood_bank`.`personal`' at line 1
+
+CREATE TABLE `personal` (
+  `Buyers_ID` int(7) NOT NULL,
+  `First_Name` varchar(20) NOT NULL,
+  `Last_Name` varchar(20) NOT NULL,
+  `Blood_Type` varchar(3) NOT NULL,
+  `Phone` int(13) NOT NULL,
+  `Address` varchar(20) DEFAULT NULL,
+  `DOB` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `bloodrepository`
+--
+ALTER TABLE `bloodrepository`
+  ADD UNIQUE KEY `B_Bag_ID` (`B_Bag_ID`);
+
+--
+-- Indexes for table `personal`
+--
+ALTER TABLE `personal`
+  ADD UNIQUE KEY `Buyers_ID` (`Buyers_ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
