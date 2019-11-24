@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 24, 2019 at 06:34 AM
+-- Generation Time: Nov 24, 2019 at 06:45 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -34,6 +34,36 @@ CREATE TABLE `bloodrepository` (
   `Cost` decimal(5,2) NOT NULL,
   `S_Quantity` int(11) NOT NULL,
   `Doner_ID` int(7) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `breceipt`
+--
+
+CREATE TABLE `breceipt` (
+  `Buyers_ID` int(7) NOT NULL,
+  `Order_ID` int(7) NOT NULL,
+  `Order_date` date NOT NULL,
+  `Blood_Type` varchar(3) NOT NULL,
+  `R_Quantity` int(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `donar`
+--
+
+CREATE TABLE `donar` (
+  `Donar_ID` int(7) NOT NULL,
+  `First_Name` varchar(20) NOT NULL,
+  `Last_Name` varchar(20) NOT NULL,
+  `Blood_Type` varchar(3) NOT NULL,
+  `DOB` date DEFAULT NULL,
+  `Gender` varchar(6) NOT NULL,
+  `Last_Donate` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
