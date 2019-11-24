@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 24, 2019 at 04:29 AM
+-- Generation Time: Nov 24, 2019 at 05:53 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -39,21 +39,6 @@ CREATE TABLE `bloodrepository` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `doner`
---
-
-CREATE TABLE `doner` (
-  `Doner_ID` int(7) NOT NULL,
-  `First_Name` varchar(20) NOT NULL,
-  `Last_Name` varchar(20) NOT NULL,
-  `DOB` date DEFAULT NULL,
-  `Gender` varchar(6) NOT NULL,
-  `Last_Donated` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `personal`
 --
 
@@ -72,11 +57,16 @@ CREATE TABLE `personal` (
 --
 
 --
--- Indexes for table `doner`
+-- Indexes for table `bloodrepository`
 --
-ALTER TABLE `doner`
-  ADD PRIMARY KEY (`Doner_ID`),
-  ADD UNIQUE KEY `Doner_ID` (`Doner_ID`);
+ALTER TABLE `bloodrepository`
+  ADD UNIQUE KEY `B_Bag_ID` (`B_Bag_ID`);
+
+--
+-- Indexes for table `personal`
+--
+ALTER TABLE `personal`
+  ADD UNIQUE KEY `Buyers_ID` (`Buyers_ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
