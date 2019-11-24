@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD
+-- Generation Time: Nov 24, 2019 at 07:03 AM
+=======
 -- Generation Time: Nov 24, 2019 at 06:45 AM
+>>>>>>> 0b4504590ac6765974f821a31ec91cd33dfc714b
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -65,6 +69,23 @@ CREATE TABLE `donar` (
   `Gender` varchar(6) NOT NULL,
   `Last_Donate` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+<<<<<<< HEAD
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `hospital`
+--
+
+CREATE TABLE `hospital` (
+  `Buyers_ID` int(7) NOT NULL,
+  `Name` varchar(20) NOT NULL,
+  `Branch` varchar(20) NOT NULL,
+  `Phone` int(13) NOT NULL,
+  `Address` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+=======
+>>>>>>> 0b4504590ac6765974f821a31ec91cd33dfc714b
 
 -- --------------------------------------------------------
 
