@@ -50,63 +50,78 @@
         </nav>
     </div>
 
-    <div class="card text-center shadow p-3 mb-5 bg-white rounded mx-auto" id="regis">
-        <div class="card-body">
-            <h3 class="card-title">Registration <br><i class="fas fa-user-circle"></i><br></h3>
-            <form>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Last Name">
-                </div>
-
-                <div class="input-group mb-3">
-                    <input type="email" class="form-control" placeholder="Email">
-                </div>
-
-                <div class="input-group mb-3">
-                    <input type="password"  class="form-control" placeholder="Password">
-                </div>
-                
-                <div class="input-group mb-3">
-                    <input type="number" class="form-control" placeholder="Age">
-                </div>
-
-                <div class="input-group mb-3">
-                    <input type="date" class="form-control" placeholder="Date of birth">
-                </div>
-
-                <div class="input-group mb-3">
-                    <select id="inputState" class="form-control">
-                        <option selected>Select Blood Group</option>
-                        <option>A+</option>
-                        <option>A-</option>
-                        <option>B+</option>
-                        <option>B-</option>
-                        <option>AB+</option>
-                        <option>AB-</option>
-                        <option>O+</option>
-                        <option>O-</option>
-                    </select>
-                </div>
-
-                <div class="input-group mb-3">
-                    <input type="number" class="form-control" placeholder="Phone number">
-                </div>
-
-                <div class="input-group mb-3">
-                    <select id="inputState" class="form-control">
-                        <option selected>Select area</option>
-                        <option>Gulshan</option>
-                        <option>Banani</option>
-                        <option>Uttrara</option>
-                        <option>Mirpur</option>
-                        <option>Dhanmondi</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn btn-success">Signup</button>
-    
-            </form>
+        <div class="card text-center shadow p-3 mb-5 bg-white rounded mx-auto" id="regis">
+            <div class="card-body">
+                <h3 class="card-title">Registration <br><i class="fas fa-user-circle"></i><br></h3>
+                <form action="signup.php" method="post">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" name="fname" placeholder="First Name">
+                    </div>
+        
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" name="lname" placeholder="Last Name">
+                    </div>
+        
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" name="email" placeholder="Email">
+                    </div>
+        
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" name="password" placeholder="Password">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" name="cpassword" placeholder="Re-enter Password">
+                    </div>
+        
+                    <div class="input-group mb-3">
+                        <select id="inputState" class="form-control" name="blood">
+                            <option selected>Select Blood Group</option>
+                            <option>A+</option>
+                            <option>A-</option>
+                            <option>B+</option>
+                            <option>B-</option>
+                            <option>AB+</option>
+                            <option>AB-</option>
+                            <option>O+</option>
+                            <option>O-</option>
+                        </select>
+                    </div>
+        
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" name="phone" placeholder="Phone number">
+                    </div>
+        
+                    <div class="input-group mb-3">
+                        <input type="date" class="form-control" name="date" placeholder="Date of birth">
+                    </div>
+        
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" name="age" placeholder="Age">
+                    </div>
+        
+                    <div class="input-group mb-3">
+                        <select id="inputState" class="form-control" name="area">
+                            <option selected>Select Gender</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                        </select>
+                    </div>
+        
+                    <div class="input-group mb-3">
+                        <select id="inputState" class="form-control" name="area">
+                            <option selected>Select area</option>
+                            <option>Gulshan</option>
+                            <option>Banani</option>
+                            <option>Uttrara</option>
+                            <option>Mirpur</option>
+                            <option>Dhanmondi</option>
+                        </select>
+                    </div>
+                    <button type="submit" name="signup" class="btn btn-success">Signup</button>
+        
+                </form>
+            </div>
         </div>
-    </div>
 
 
 
