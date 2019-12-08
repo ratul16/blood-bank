@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 07, 2019 at 02:13 AM
--- Server version: 10.4.8-MariaDB
--- PHP Version: 7.3.11
+-- Generation Time: Dec 08, 2019 at 11:32 PM
+-- Server version: 10.4.10-MariaDB
+-- PHP Version: 7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,67 +19,70 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `blood_bank`
+-- Database: `bbank`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `donar`
+-- Table structure for table `donor`
 --
 
-CREATE TABLE `donar` (
-  `USER_ID` int(7) NOT NULL,
-  `F_NAME` varchar(20) NOT NULL,
-  `L_NAME` varchar(20) NOT NULL,
-  `BLOOD_TYPE` varchar(5) NOT NULL,
-  `PHONE` varchar(20) NOT NULL,
-  `DOB` varchar(10) NOT NULL,
-  `ADDRESS` varchar(25) NOT NULL,
-  `NUMBER_OF_DONATION` int(11) DEFAULT NULL,
-  `AVAILABILIT` varchar(100) NOT NULL,
-  `ABOUT` varchar(200) DEFAULT NULL
+CREATE TABLE `donor` (
+  `uId` int(7) NOT NULL,
+  `fname` varchar(255) NOT NULL,
+  `lname` varchar(255) NOT NULL,
+  `age` int(10) NOT NULL,
+  `sex` varchar(255) NOT NULL,
+  `blood_group` varchar(20) NOT NULL,
+  `phone` int(20) NOT NULL,
+  `dob` date NOT NULL,
+  `city` varchar(255) NOT NULL,
+  `state` varchar(100) NOT NULL,
+  `about` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `login`
+-- Dumping data for table `donor`
 --
 
-CREATE TABLE `login` (
-  `ID` int(5) NOT NULL,
-  `USER_ID` int(7) NOT NULL,
-  `EMAIL` varchar(10) NOT NULL,
-  `PASSWORD` varchar(12) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
+INSERT INTO `donor` (`uId`, `fname`, `lname`, `age`, `sex`, `blood_group`, `phone`, `dob`, `city`, `state`, `about`) VALUES
+(1, 'Hasibul Alam', 'Ratul', 25, 'Male', 'O-', 1730482775, '1994-09-16', 'Dhaka', 'Yes', 'Calm');
 
 --
--- Table structure for table `post`
+-- Triggers `donor`
 --
-
-CREATE TABLE `post` (
-  `BLOOD_TYPE` varchar(5) NOT NULL,
-  `STATE` varchar(10) NOT NULL,
-  `POST_ID` int(7) NOT NULL,
-  `NAME` varchar(255) NOT NULL,
-  `LOCATION` varchar(255) NOT NULL,
-  `PHONE` varchar(20) NOT NULL,
-  `URGENCY` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+DELIMITER $$
+CREATE TRIGGER `donor_backup` BEFORE INSERT ON `donor` FOR EACH ROW INSERT INTO donor_backup VALUES (NEW.uId,NEW.fname,NEW.lname,NEW.age,NEW.sex,NEW.blood_group,NEW.phone,NEW.dob,NEW.city,NEW.state,NEW.about)
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `donor_delete` BEFORE DELETE ON `donor` FOR EACH ROW BEGIN
+INSERT INTO donor_delete 
+VALUES (old.uId,old.fname,old.lname,old.age,old.sex,old.blood_group,old.phone,old.dob,old.city,old.state,old.about);
+END
+$$
+DELIMITER ;
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `login`
+-- Indexes for table `donor`
 --
-ALTER TABLE `login`
-  ADD PRIMARY KEY (`ID`),
-  ADD UNIQUE KEY `ID` (`ID`,`USER_ID`,`PASSWORD`);
+ALTER TABLE `donor`
+  ADD PRIMARY KEY (`uId`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `donor`
+--
+ALTER TABLE `donor`
+  MODIFY `uId` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
