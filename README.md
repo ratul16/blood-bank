@@ -1,9 +1,9 @@
-## Blood Doner Management System
+## Blood Donor Management System
 
 ---
 **Proposal**
 
-> One proposed solution for this specific problem is to develop a management system so that the problem can be solved to some extent. Blood Bank Management System can collect blood from many donators in short from various sources and distribute that blood to needy people who require blood. To do all this we require high-quality Web application to manage those jobs. The basic building aim is to provide blood donation service to the people recently. Blood Bank Management System is a Web-based application that is designed to store, process, retrieve and analyze information concerned with the administrative and inventory management within a blood bank. The project aims at maintaining all the information pertaining to blood donors, different blood groups available in each blood bank and help them manage in a better way. Project Aim is to provide transparency in this field, make the process of obtaining blood from a blood bank hassle-free and corruption-free and make the system of blood bank management effective. The information will be available in shortest time possible as it will be in real time.
+> One proposed solution for this specific problem is to develop a management system so that the problem can be solved to some extent. Blood Bank Management System can collect blood from many donors in short from various sources and distribute that blood to needy people who require blood. To do all this we require high-quality Web application to manage those jobs. The basic building aim is to provide blood donation service to the people recently. Blood Bank Management System is a Web-based application that is designed to store, process, retrieve and analyze information concerned with the administrative and inventory management within a blood bank. The project aims at maintaining all the information pertaining to blood donors, different blood groups are available in each blood bank and help them manage in a better way. Project Aim is to provide transparency in this field, make the process of obtaining blood from a blood bank hassle-free and corruption-free and make the system of blood bank management effective. The information will be available in shortest time possible as it will be in real time.
 
 **Technology**
 
