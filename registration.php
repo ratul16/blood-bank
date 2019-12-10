@@ -1,3 +1,7 @@
+<?php
+include "connect.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -122,10 +126,53 @@
                 </form>
             </div>
         </div>
+    
+   <?php
+   if (isset($_POST['signup'])) {
+     
+      $fname=$_POST['fname'];
+      $lname=$_POST['lname'];
+      $email=$_POST['email'];
+      $password=$_POST['password'];
+      $cpassword=$_POST['cpassword'];
+      $blood=$_POST['blood'];
+      $phone=$_POST['phone'];
+      $date=$_POST['date'];
+      $age=$_POST['age'];
+      $area=$_POST['area'];
 
+      if ($password == $cpassword) {
+         $query = "SELECT * FROM donor WHERE email = ('$email')";
+         $query_run = mysqli_query ($con,$query);
 
+         if (mysqli_num_rows($query_run) > 0) {
+            //already a user
+            echo '<script type="text/javascript"> alert("User Already Exists.")</script>';
+         }
 
+         else {
+            $query1 = "INSERT INTO donor (fname,lname,email,password,blood,phone,date,age,area)
+            VALUES ('".$_POST['fname']."','".$_POST['lname']."','".$_POST['email']."','".md5($_POST['password'])."','".$_POST['blood']."','".$_POST['phone']."','".$_POST['date']."','".$_POST['age']."','".$_POST['area']."')";
 
+            $query2 =  "INSERT INTO login (email,password) VALUES ('".$_POST['email']."','".md5($_POST['password'])."')";
+
+            $query_run = mysqli_query ($con,$query1) && mysqli_query ($con,$query2);
+            if ($query_run) {
+               echo '<script type="text/javascript"> alert("Member Added Successfully")</script>';
+            }
+            else {
+               echo '<script type="text/javascript"> alert("There was a problem in adding member.")</script>';
+            }
+         }
+      }
+      else {
+         echo '<script type="text/javascript"> alert("Please Enter the Values")</script>';
+      }
+   }
+mysqli_close($con);
+    ?>
+
+    
 
     <!-- Footer -->
     <footer class="page-footer font-small blue pt-4">
