@@ -132,9 +132,11 @@
     $(document).ready(function(){
         $('input[type="checkbox"]').click(function(){
             if($(this).prop("checked") == true){
+                $.get('http://localhost/query.php','state=yes');
                 alert("You are available to donors now");
             }
             else if($(this).prop("checked") == false){
+                $.get('http://localhost/query.php','state=no');
                 alert("You are not available to donors now");
             }
         });
