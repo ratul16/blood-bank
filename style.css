@@ -120,3 +120,21 @@ input:checked[type='checkbox']:before
     
 }
 
+#profile{
+    margin-top: 10%;
+    width: 100%;
+}
+
+
+#profile a {
+    text-decoration: none;
+}
+
+
+footer{
+    margin-top: 20%;
+}
+
+#doner-info{
+    margin-top: 5%;
+}
