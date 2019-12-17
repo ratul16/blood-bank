@@ -97,25 +97,36 @@ include "Connect.php";
                 </div>
 
                 <div class="input-group mb-3">
-                    <select id="inputState" class="form-control" name="city">
-                        <option selected>Select Gender</option>
-                        <option>Male</option>
-                        <option>Female</option>
+                    <select id="inputState" class="form-control" name="sex">
+                        <option value="blank" selected>Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
                     </select>
                 </div>
 
                 <div class="input-group mb-3">
-                    <select id="inputState" class="form-control" name="city">
-                        <option selected>Select area</option>
-                        <option>Dhaka</option>
-                        <option>Khulna</option>
-                        <option>Sylhet</option>
-                        <option>Chittagong</option>
-                        <option>Rajshahi</option>
-                        <option>Barisal</option>
-                        <option>Rangpur</option>
+                    <select id="inputState" class="form-control" name="area">
+                        <option value="blank" selected>Select area</option>
+                        <option value="Gulshan">Gulshan</option>
+                        <option value="Banani">Banani</option>
+                        <option value="Uttara">Uttara</option>
+                        <option value="Mirpur">Mirpur</option>
+                        <option value="Dhanmondi">Dhanmondi</option>
                     </select>
                 </div>
+
+                <div class="input-group mb-3">
+                    <select id="inputState" class="form-control" name="state">
+                        <option value="blank" selected>Can you donate ?</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="about" placeholder="About yourself">
+                </div>
+
                 <button type="submit" name="registration" class="btn btn-success">Signup</button>
 
             </form>
@@ -130,11 +141,14 @@ include "Connect.php";
         $email = $_POST['email'];
         $password = $_POST['password'];
         $cpassword = $_POST['cpassword'];
-        $blood_group = $_POST['blood_group'];
+        $blood = $_POST['blood'];
         $phone = $_POST['phone'];
-        $date = $_POST['date'];
+        $dob = $_POST['date'];
         $age = $_POST['age'];
-        $city = $_POST['city'];
+        $sex = $_POST['sex'];
+        $area = $_POST['area'];
+        $about = $_POST['about'];
+        $state = $_POST['state'];
 
         if ($password == $cpassword) {
             $query = "SELECT * FROM donor WHERE email = ('$email')";
@@ -144,21 +158,26 @@ include "Connect.php";
                 //already a user
                 echo '<script type="text/javascript"> alert("User Already Exists.")</script>';
             } else {
-                $query1 = "INSERT INTO donor (fname,lname,blood_group,phone,date,age,city)
-            VALUES ('" . $_POST['fname'] . "','" . $_POST['lname'] . "','" . $_POST['blood_group'] . "','" . $_POST['phone'] . "','" . $_POST['date'] . "','" . $_POST['age'] . "','" . $_POST['city'] . "')";
 
-                $query2 =  "INSERT INTO login (email,password) VALUES ('" . $_POST['email'] . "','" . ($_POST['password']) . "')";
+                $query1 = "INSERT INTO donor (fname, lname, age, sex, blood_group, phone, dob, city, state, about) VALUES ('$fname','$lname','$age','$sex','$blood','$phone','$dob','$area','$state','$about')";
+
+                $query2 = "INSERT INTO login (email, password) VALUES ('$email','$password')";
 
                 $query_run = mysqli_query($con, $query1) && mysqli_query($con, $query2);
                 if ($query_run) {
-                    echo '<script type="text/javascript"> alert("Member Added Successfully")</script>';
+                    echo '<script type="text/javascript"> alert("Member Add Successfully !!")</script>';
                 } else {
-                    echo '<script type="text/javascript"> alert("There was a problem in adding member.")</script>';
+                    echo (mysqli_error($con));
+                    echo '<script type="text/javascript"> alert("!! Error !!")</script>';
                 }
             }
+
         } else {
+
             echo '<script type="text/javascript"> alert("Please Enter the Values")</script>';
+
         }
+        
     }
     mysqli_close($con);
     ?>

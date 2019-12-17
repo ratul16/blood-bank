@@ -1,5 +1,29 @@
 <?php
 include "connect.php";
+
+session_start();
+$email = $_SESSION['email'];
+
+$result = mysqli_query($con, "SELECT d.`uid`, d.`fname`,d.`lname`,d.`age`,d.`sex`,d.`blood_group`,d.`dob`,d.`city`,d.`phone`,d.`state`,d.`about`,l.`email` FROM donor d join login l on(d.uid = l.id) WHERE email= '$email' ");
+
+$retrive = mysqli_fetch_array($result);
+
+//print_r($retrive);
+
+$id = $retrive['uid'];
+$fname = $retrive['fname'];
+$lname = $retrive['lname'];
+$blood = $retrive['blood_group'];
+$phone = $retrive['phone'];
+$dob = $retrive['dob'];
+$age = $retrive['age'];
+$sex = $retrive['sex'];
+$city = $retrive['city'];
+$about = $retrive['about'];
+$state = $retrive['state'];
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -59,18 +83,22 @@ include "connect.php";
             <div class="col-md-10">
                 <div class="card bg-light" style="margin-top:20px; width:1100px;">
                     <div class="card-body" style="margin-left:20px;"><img class="rounded-circle" src="img/avater.png" style="width:150px;height:150px;">
-                        <h4 class="card-title" style="padding-top:20px;">Hasibul Alam Ratul<h4>
-                                <h5> Email : demo@gmail.com </h5>
-                                <h5>Age : 24</h5>
-                                <h5>Sex &nbsp;: Male</h5>
-                                <h5>Date of Birth : 16th,Sept</h5>
-                                <h5>Blood Group : O-</h5>
-                                <h5>Phone : 456492318494</h5>
-                                <h5>City : Mirpur</h5>
-                                <h5>Doner ID : 232</h5>
+                        <h4 class="card-title" style="padding-top:20px;"><?php echo $fname, ' ', $lname; ?><h4>
+                                <h5> Email : <?php echo $email; ?> </h5>
+                                <h5>Age : <?php echo $age; ?></h5>
+                                <h5>Sex &nbsp;: <?php echo $sex; ?></h5>
+                                <h5>Date of Birth : <?php echo $dob; ?></h5>
+                                <h5>Blood Group : <?php echo $blood; ?></h5>
+                                <h5>Phone : <?php echo $phone; ?></h5>
+                                <h5>City : <?php echo $city; ?></h5>
+                                <h5>Doner ID : <?php echo $id; ?></h5>
+                                <h5>Avaiable : <?php echo $state; ?></h5>
                                 <br>
-                                <button type="button" class="btn btn-info"><a href="doctor.php" style="color:#ffffff;">Can donate</a></button>
-                                <button type="button" class="btn btn-warning"><a href="doctor.php" style="color:#ffffff;">Can't donate</a></button>
+
+                                <form action="" method="post">
+                                    <button type="submit" name="donate" class="btn btn-info">Donate</button>
+                                    <button type="submit" name="rest" class="btn btn-success">Resting</button>
+                                </form>
                     </div>
                 </div>
                 <br>
@@ -101,11 +129,11 @@ include "connect.php";
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Number of blood bag</label>
                     <select class="form-control" name="nbag">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -131,7 +159,6 @@ include "connect.php";
     </div>
 
     </div>
-
 
 
 
