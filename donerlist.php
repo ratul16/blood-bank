@@ -106,7 +106,7 @@ if (mysqli_num_rows($query_run) > 0) {
                                 <td style="width:500px;"><?php echo $result['email']; ?></td>
                                 </tr>
                             <?php $sl_no++;
-                                                        }; ?>
+                             }; ?>
                         </tbody>
 
                     </table>

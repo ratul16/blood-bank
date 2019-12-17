@@ -121,20 +121,23 @@ $state = $retrive['state'];
             <strong>Blood Request</strong>
         </div>
         <div class="card-body">
-            <form>
+        <form action="filter.php" method="post">
+           <div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Name</label>
                     <input type="Name" class="form-control" placeholder="Enter paitent's fullname">
                 </div>
                 <div class="form-group">
-                    <label for="exampleFormControlSelect1">Number of blood bag</label>
+                    <label for="exampleFormControlSelect1">Urgency</label>
                     <select class="form-control" name="nbag">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
+                        <option value="Emergency">Emergency</option>
+                        <option value="ASAP">As soon as possible</option>
+                        <option value="No">Not Urgent</option>
                     </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Phone#</label>
+                    <input type="phone" class="form-control" placeholder="Enter phone number">
                 </div>
                 <div class="form-group">
                     <label>Select Blood Group</label>
@@ -149,6 +152,19 @@ $state = $retrive['state'];
                         <option value="O+">O+</option>
                         <option value="O-">O-</option>
                     </select>
+                    <div class="form-group">
+                    <label>Select City</label>
+                    <select id="inputState" class="form-control" name="city">
+                              <option selected>Select area</option>
+                              <option>Dhaka</option>
+                              <option>Khulna</option>
+                              <option>Sylhet</option>
+                              <option>Chittagong</option>
+                              <option>Rajshahi</option>
+                              <option>Barisal</option>
+                              <option>Rangpur</option>
+                            </select>
+                        </div>
                 </div>
 
                 <div class="form-group">
