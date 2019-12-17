@@ -123,7 +123,7 @@ include "Connect.php";
     </div>
 
     <?php
-    if (isset($_POST['signup'])) {
+    if (isset($_POST['registration'])) {
 
         $fname = $_POST['fname'];
         $lname = $_POST['lname'];
