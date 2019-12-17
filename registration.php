@@ -116,7 +116,7 @@ include "Connect.php";
                         <option>Rangpur</option>
                     </select>
                 </div>
-                <button type="submit" name="registration" class="btn btn-success">Signup</button>
+                <button type="submit" name="signup" class="btn btn-success">Signup</button>
 
             </form>
         </div>
