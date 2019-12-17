@@ -1,5 +1,5 @@
 <?php
-include "connect.php";
+include "Connect.php";
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +38,7 @@ include "connect.php";
 
                         <li class="nav-item" role="presentation"><a class="nav-link" href="doclist.php" style="color:#ffffff;"><i class="far fa-user-circle"></i>&nbsp;Doner</a></li>
 
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="registartion.php" style="color:#ffffff;"><i class="fas fa-id-badge"></i>&nbsp;Registration</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="registration.php" style="color:#ffffff;"><i class="fas fa-id-badge"></i>&nbsp;Registration</a></li>
 
                         <li class="nav-item" role="presentation"><a class="nav-link text-monospace" href="login.php" style="color:#ffffff;"><i class="fas fa-user-shield"></i>&nbsp;Login</a></li>
                     </ul>
@@ -50,7 +50,7 @@ include "connect.php";
     <div class="card text-center shadow p-3 mb-5 bg-white rounded mx-auto" id="regis">
         <div class="card-body">
             <h3 class="card-title">Registration <br><i class="fas fa-user-circle"></i><br></h3>
-            <form action="signup.php" method="post">
+            <form action="registration.php" method="post">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" name="fname" placeholder="First Name">
                 </div>
@@ -71,7 +71,7 @@ include "connect.php";
                 </div>
 
                 <div class="input-group mb-3">
-                    <select id="inputState" class="form-control" name="blood">
+                    <select id="inputState" class="form-control" name="blood_group">
                         <option value="blank" selected>Select Blood Group</option>
                         <option value="A+">A+</option>
                         <option value="A">A-</option>
@@ -97,7 +97,7 @@ include "connect.php";
                 </div>
 
                 <div class="input-group mb-3">
-                    <select id="inputState" class="form-control" name="area">
+                    <select id="inputState" class="form-control" name="city">
                         <option selected>Select Gender</option>
                         <option>Male</option>
                         <option>Female</option>
@@ -105,34 +105,36 @@ include "connect.php";
                 </div>
 
                 <div class="input-group mb-3">
-                    <select id="inputState" class="form-control" name="area">
+                    <select id="inputState" class="form-control" name="city">
                         <option selected>Select area</option>
-                        <option>Gulshan</option>
-                        <option>Banani</option>
-                        <option>Uttrara</option>
-                        <option>Mirpur</option>
-                        <option>Dhanmondi</option>
+                        <option>Dhaka</option>
+                        <option>Khulna</option>
+                        <option>Sylhet</option>
+                        <option>Chittagong</option>
+                        <option>Rajshahi</option>
+                        <option>Barisal</option>
+                        <option>Rangpur</option>
                     </select>
                 </div>
-                <button type="submit" name="signup" class="btn btn-success">Signup</button>
+                <button type="submit" name="registration" class="btn btn-success">Signup</button>
 
             </form>
         </div>
     </div>
 
     <?php
-    if (isset($_POST['signup'])) {
+    if (isset($_POST['registration'])) {
 
         $fname = $_POST['fname'];
         $lname = $_POST['lname'];
         $email = $_POST['email'];
         $password = $_POST['password'];
         $cpassword = $_POST['cpassword'];
-        $blood = $_POST['blood'];
+        $blood_group = $_POST['blood_group'];
         $phone = $_POST['phone'];
         $date = $_POST['date'];
         $age = $_POST['age'];
-        $area = $_POST['area'];
+        $city = $_POST['city'];
 
         if ($password == $cpassword) {
             $query = "SELECT * FROM donor WHERE email = ('$email')";
@@ -142,10 +144,10 @@ include "connect.php";
                 //already a user
                 echo '<script type="text/javascript"> alert("User Already Exists.")</script>';
             } else {
-                $query1 = "INSERT INTO donor (fname,lname,email,password,blood,phone,date,age,area)
-            VALUES ('" . $_POST['fname'] . "','" . $_POST['lname'] . "','" . $_POST['email'] . "','" . md5($_POST['password']) . "','" . $_POST['blood'] . "','" . $_POST['phone'] . "','" . $_POST['date'] . "','" . $_POST['age'] . "','" . $_POST['area'] . "')";
+                $query1 = "INSERT INTO donor (fname,lname,blood_group,phone,date,age,city)
+            VALUES ('" . $_POST['fname'] . "','" . $_POST['lname'] . "','" . $_POST['blood_group'] . "','" . $_POST['phone'] . "','" . $_POST['date'] . "','" . $_POST['age'] . "','" . $_POST['city'] . "')";
 
-                $query2 =  "INSERT INTO login (email,password) VALUES ('" . $_POST['email'] . "','" . md5($_POST['password']) . "')";
+                $query2 =  "INSERT INTO login (email,password) VALUES ('" . $_POST['email'] . "','" .($_POST['password']) . "')";
 
                 $query_run = mysqli_query($con, $query1) && mysqli_query($con, $query2);
                 if ($query_run) {
