@@ -53,6 +53,7 @@ else{
                             <table class="table table-hover table-responsive-md text-center">
                             <thead style="color:#ffffff;">
                                     <tr class="bg-danger">
+                                        <th scope="col">SL.NO.</th>
                                         <th scope="col">Name</th>
                                         <th scope="col">Availability</th>
                                         <th cope="col">Age </th>
@@ -66,7 +67,7 @@ else{
                                 <tbody>
                                     <?php $sl_no=1;
                                     foreach($query_run as $result){?>
-                                    <tr>
+                                    <td style="width:100px;"><?php echo $sl_no;?></td>
                                     <td style="width:600px;"><?php echo $result['fname'].' '.$result['lname'];?></td>
                                     <td style="width:300px;"><?php echo $result['state'];?></td>
                                     <td style="width:200px;"><?php echo $result['age'];?></td>

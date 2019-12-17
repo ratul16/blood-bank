@@ -61,6 +61,7 @@ else {
                             <table class="table table-hover table-responsive-md text-center">
                             <thead style="color:#ffffff;">
                                     <tr class="bg-danger">
+                                        <th scope="col">SL.NO.</th>
                                         <th scope="col">Name</th>
                                         <th scope="col">Availability</th>
                                         <th cope="col">Age </th>
@@ -73,15 +74,18 @@ else {
                                 <tbody>
 
                                     <tr>
-                                    <td style="width:600px;"><?php echo $fname.' '.$lname;?></td>
-                                    <td style="width:300px;"><?php echo $Available;?></td>
-                                    <td style="width:200px;"><?php echo $age;?></td>
-                                    <td style="width:400px;"><?php echo $Gender;?></td>
-                                    <td style="width:300px;"><?php echo $Blood_G;?></td>
-                                    <td style="width:600px;"><?php echo $Phone;?></td>
-                                    <td style="width:400px;"><?php echo $City;?></td>
+                                    <?php $sl_no=1;
+                                    foreach($query_run as $result){?>
+                                    <td style="width:100px;"><?php echo $sl_no;?></td>
+                                    <td style="width:600px;"><?php echo $result['fname'].' '.$result['lname'];?></td>
+                                    <td style="width:300px;"><?php echo $result['state'];?></td>
+                                    <td style="width:200px;"><?php echo $result['age'];?></td>
+                                    <td style="width:400px;"><?php echo $result['sex'];?></td>
+                                    <td style="width:200px;"><?php echo $result['blood_group'];?></td>
+                                    <td style="width:400px;"><?php echo $result['city'];?></td>
+                                    <td style="width:600px;"><?php echo $result['phone'];?></td>
                                     </tr></tbody>
-
+                                    <?php $sl_no++;};?>
                                 </table>
         <div>
             <button id="Back" type="button" class="btn btn-danger"><a href="index.html" style="color:#eeeee;"><strong>BACK</strong></a></button>
