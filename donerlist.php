@@ -1,3 +1,25 @@
+<?php
+include_once "Connect.php";
+
+$querys = "SELECT d.fname, d.lname, d.age, d.sex, d.blood_group, d.phone, d.city, d.state, l.email FROM donor d NATURAL JOIN login l ORDER BY blood_group DESC";
+$query_run = mysqli_query($con,$querys);
+if (mysqli_num_rows ($query_run)> 0) {
+   while ($result = $query_run -> fetch_assoc()) {
+      $fname = $result['fname'];
+      $lname = $result['lname'];
+      $age = $result['age'];
+      $Available=$result['state'];
+      $Gender=$result['sex'];
+      $Blood_G=$result['blood_group'];
+      $Phone=$result['phone'];
+      $City=$result['city'];
+      $email=$result['email'];
+   }}
+else{
+   echo "No resutls";
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,116 +44,47 @@
 
 
 </head>
-
 <body>
-
-    <div>
-        <nav class="navbar navbar-light navbar-expand-md bg-dark navigation-clean-button">
-            <div class="container-fluid"><a class="navbar-brand text-white" href="index.html"><i
-                        class="fas fa-ambulance"></i>&nbsp;Blood Doner</a><button class="navbar-toggler"
-                    data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span
-                        class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navcol-1">
-                    <ul class="nav navbar-nav ml-auto">
-
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="index.html"
-                                style="color:#ffffff;"><i class="fa fa-home"></i>&nbsp;Home</a></li>
-
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="doclist.php"
-                                style="color:#ffffff;"><i class="far fa-user-circle"></i>&nbsp;Doner</a></li>
-
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="registartion.php"
-                                style="color:#ffffff;"><i class="fas fa-id-badge"></i>&nbsp;Registration</a></li>
-
-                        <li class="nav-item" role="presentation"><a class="nav-link text-monospace" href="login.php"
-                                style="color:#ffffff;"><i class="fas fa-user-shield"></i>&nbsp;Login</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </div>
-
-
-
-            <div class="container">
+<div class="container">
                 <div id="doner-info">
                     <div class="card">
                         <div class="card-body">
-                            <h3 class="card-title text-center text-danger text-uppercase">Doner List</h3><br>
+                            <h3 class="card-title text-center text-danger text-uppercase">Donor List</h3><br>
                             <table class="table table-hover table-responsive-md text-center">
-
-                                <div class="input-group mb-3">
-                                    <select id="inputState" action="filter.php" method="POST" class="form-control" name="filter" >
-                                        <option selected>Filter</option>
-                                        <option name="Available" type="submit" class="searchbutton" value="Yes">Available</option>
-                                        <option value="A+">A+</option>
-                                        <option value="A-">A-</option>
-                                        <option value="B+">B+</option>
-                                        <option value="B-">B-</option>
-                                        <option value="AB+">AB+</option>
-                                        <option value="AB-">AB-</option>
-                                        <option value="O+">O+</option>
-                                        <option value="O-">O-</option>
-                                    </select>
-                                </div>
-                                <thead style="color:#ffffff;">
+                            <thead style="color:#ffffff;">
                                     <tr class="bg-danger">
                                         <th scope="col">Name</th>
-                                        <th scope="col">Email</th>
+                                        <th scope="col">Availability</th>
+                                        <th cope="col">Age </th>
+                                        <th scope="col">Gender</th>
                                         <th scope="col">Blood Group</th>
                                         <th scope="col">City</th>
-                                        <th scope="col">Phone</th>
-                                        <th scope="col">State</th>
+                                        <th scope="col">Phone#</th>
+                                        <th scope="col">Email</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-
+                                    <?php $sl_no=1;
+                                    foreach($query_run as $result){?>
                                     <tr>
-                                        <td style="width:600px;">Ramiza Maliha</td>
-                                        <td style="width:400px;">demo@gmail.com</td>
-                                        <td style="width:300px;">O+</td>
-                                        <td style="width:400px;">Kakrail</td>
-                                        <td style="width:600px;">01657854494</td>
-                                        <td style="width:200px;">Yes</td>
+                                    <td style="width:600px;"><?php echo $result['fname'].' '.$result['lname'];?></td>
+                                    <td style="width:300px;"><?php echo $result['state'];?></td>
+                                    <td style="width:200px;"><?php echo $result['age'];?></td>
+                                    <td style="width:400px;"><?php echo $result['sex'];?></td>
+                                    <td style="width:200px;"><?php echo $result['blood_group'];?></td>
+                                    <td style="width:400px;"><?php echo $result['city'];?></td>
+                                    <td style="width:600px;"><?php echo $result['phone'];?></td>
+                                    <td style="width:500px;"><?php echo $result['email'];?></td>
                                     </tr>
-                                    
-                                    <tr>
-                                        <td style="width:600px;">Israt Jahan Diya</td>
-                                        <td style="width:400px;">demo@gmail.com</td>
-                                        <td style="width:300px;">B+</td>
-                                        <td style="width:400px;">Kakrail</td>
-                                        <td style="width:600px;">016455194494</td>
-                                        <td style="width:200px;">Yes</td>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td style="width:600px;">Hasibul Alam Ratul</td>
-                                        <td style="width:400px;">demo@gmail.com</td>
-                                        <td style="width:300px;">O-</td>
-                                        <td style="width:400px;">Mirpur</td>
-                                        <td style="width:600px;">01654194494</td>
-                                        <td style="width:200px;">No</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td style="width:600px;">Sadia Sheikh</td>
-                                        <td style="width:400px;">demo@gmail.com</td>
-                                        <td style="width:300px;">0+</td>
-                                        <td style="width:400px;">Motijhil</td>
-                                        <td style="width:600px;">016574494</td>
-                                        <td style="width:200px;">Yes</td>
-                                    </tr>
+                                    <?php $sl_no++;};?>
                                 </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </div>
 
+                                </table>
+        <div>
+            <button id="Back" type="button" class="btn btn-danger"><a href="index.html" style="color:#eeeee;"><strong>BACK</strong></a></button>
+        </div>
 
-
-
+</div>
     <!-- Footer -->
     <footer class="page-footer font-small blue pt-4">
         <!-- Footer Links -->
