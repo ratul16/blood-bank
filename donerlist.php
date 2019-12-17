@@ -2,21 +2,21 @@
 include_once "Connect.php";
 
 $querys = "SELECT d.fname, d.lname, d.age, d.sex, d.blood_group, d.phone, d.city, d.state, l.email FROM donor d NATURAL JOIN login l ORDER BY blood_group DESC";
-$query_run = mysqli_query($con,$querys);
-if (mysqli_num_rows ($query_run)> 0) {
-   while ($result = $query_run -> fetch_assoc()) {
-      $fname = $result['fname'];
-      $lname = $result['lname'];
-      $age = $result['age'];
-      $Available=$result['state'];
-      $Gender=$result['sex'];
-      $Blood_G=$result['blood_group'];
-      $Phone=$result['phone'];
-      $City=$result['city'];
-      $email=$result['email'];
-   }}
-else{
-   echo "No resutls";
+$query_run = mysqli_query($con, $querys);
+if (mysqli_num_rows($query_run) > 0) {
+    while ($result = $query_run->fetch_assoc()) {
+        $fname = $result['fname'];
+        $lname = $result['lname'];
+        $age = $result['age'];
+        $Available = $result['state'];
+        $Gender = $result['sex'];
+        $Blood_G = $result['blood_group'];
+        $Phone = $result['phone'];
+        $City = $result['city'];
+        $email = $result['email'];
+    }
+} else {
+    echo "No resutls";
 }
 
 ?>
@@ -33,8 +33,7 @@ else{
     <title>Blood Donor</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="style.css">
@@ -44,79 +43,107 @@ else{
 
 
 </head>
+
 <body>
-<div class="container">
-                <div id="doner-info">
-                    <div class="card">
-                        <div class="card-body">
-                            <h3 class="card-title text-center text-danger text-uppercase">Donor List</h3><br>
-                            <table class="table table-hover table-responsive-md text-center">
-                            <thead style="color:#ffffff;">
-                                    <tr class="bg-danger">
-                                        <th scope="col">SL.NO.</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Availability</th>
-                                        <th cope="col">Age </th>
-                                        <th scope="col">Gender</th>
-                                        <th scope="col">Blood Group</th>
-                                        <th scope="col">City</th>
-                                        <th scope="col">Phone#</th>
-                                        <th scope="col">Email</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php $sl_no=1;
-                                    foreach($query_run as $result){?>
-                                    <td style="width:100px;"><?php echo $sl_no;?></td>
-                                    <td style="width:600px;"><?php echo $result['fname'].' '.$result['lname'];?></td>
-                                    <td style="width:300px;"><?php echo $result['state'];?></td>
-                                    <td style="width:200px;"><?php echo $result['age'];?></td>
-                                    <td style="width:400px;"><?php echo $result['sex'];?></td>
-                                    <td style="width:200px;"><?php echo $result['blood_group'];?></td>
-                                    <td style="width:400px;"><?php echo $result['city'];?></td>
-                                    <td style="width:600px;"><?php echo $result['phone'];?></td>
-                                    <td style="width:500px;"><?php echo $result['email'];?></td>
-                                    </tr>
-                                    <?php $sl_no++;};?>
-                                </tbody>
 
-                                </table>
-        <div>
-            <button id="Back" type="button" class="btn btn-danger"><a href="index.html" style="color:#eeeee;"><strong>BACK</strong></a></button>
-        </div>
+    <div>
+        <nav class="navbar navbar-light navbar-expand-md bg-dark navigation-clean-button">
+            <div class="container-fluid"><a class="navbar-brand text-white" href="index.html"><i class="fas fa-ambulance"></i>&nbsp;Blood Doner</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav ml-auto">
+                        <div id="searchbox">
+                            <form id="spage" action="search.php" method="POST">
+                                <input name="name" type="text" class="searchinput" autocomplete="off" placeholder="Name or Blood group" />
 
-</div>
-    <!-- Footer -->
-    <footer class="page-footer font-small blue pt-4">
-        <!-- Footer Links -->
-        <div class="container-fluid text-center text-md-left">
-            <h5 class="text-uppercase text-center">Blood Doner</h5>
-        </div>
-        <!-- Footer Links -->
-        <!-- Copyright -->
-        <div class="footer-copyright text-center py-3">© 2018 Copyright:
-            <a href="http://prantoamt.pythonanywhere.com"> Blood Doner.com</a>
-        </div>
-        <!-- Copyright -->
+                                <input name="search" type="submit" class="searchbutton" value="Search" />
+                        </div>
 
-    </footer>
-    <!-- Footer -->
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="index.html" style="color:#ffffff;"><i class="fa fa-home"></i>&nbsp;Home</a></li>
+
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="donorlist.php" style="color:#ffffff;"><i class="far fa-user-circle"></i>&nbsp;Doner</a></li>
+
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="registration.php" style="color:#ffffff;"><i class="fas fa-id-badge"></i>&nbsp;Registration</a></li>
+
+                        <li class="nav-item" role="presentation"><a class="nav-link text-monospace" href="login.php" style="color:#ffffff;"><i class="fas fa-user-shield"></i>&nbsp;Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
 
 
 
+    <div class="container">
+        <div id="doner-info">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title text-center text-danger text-uppercase">Donor List</h3><br>
+                    <table class="table table-hover table-responsive-md text-center">
+                        <thead style="color:#ffffff;">
+                            <tr class="bg-danger">
+                                <th scope="col">SL.NO.</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Availability</th>
+                                <th cope="col">Age </th>
+                                <th scope="col">Gender</th>
+                                <th scope="col">Blood Group</th>
+                                <th scope="col">City</th>
+                                <th scope="col">Phone#</th>
+                                <th scope="col">Email</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $sl_no = 1;
+                            foreach ($query_run as $result) { ?>
+                                <td style="width:100px;"><?php echo $sl_no; ?></td>
+                                <td style="width:600px;"><?php echo $result['fname'] . ' ' . $result['lname']; ?></td>
+                                <td style="width:300px;"><?php echo $result['state']; ?></td>
+                                <td style="width:200px;"><?php echo $result['age']; ?></td>
+                                <td style="width:400px;"><?php echo $result['sex']; ?></td>
+                                <td style="width:200px;"><?php echo $result['blood_group']; ?></td>
+                                <td style="width:400px;"><?php echo $result['city']; ?></td>
+                                <td style="width:600px;"><?php echo $result['phone']; ?></td>
+                                <td style="width:500px;"><?php echo $result['email']; ?></td>
+                                </tr>
+                            <?php $sl_no++;
+                                                        }; ?>
+                        </tbody>
+
+                    </table>
+                    <div>
+                        <button id="Back" type="button" class="btn btn-danger"><a href="index.html" style="color:#eeeee;"><strong>BACK</strong></a></button>
+                    </div>
+
+                </div>
+                <!-- Footer -->
+                <footer class="page-footer font-small blue pt-4">
+                    <!-- Footer Links -->
+                    <div class="container-fluid text-center text-md-left">
+                        <h5 class="text-uppercase text-center">Blood Doner</h5>
+                    </div>
+                    <!-- Footer Links -->
+                    <!-- Copyright -->
+                    <div class="footer-copyright text-center py-3">© 2018 Copyright:
+                        <a href="http://prantoamt.pythonanywhere.com"> Blood Doner.com</a>
+                    </div>
+                    <!-- Copyright -->
+
+                </footer>
+                <!-- Footer -->
 
 
 
 
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-        </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-        </script>
+
+
+
+                <!-- Bootstrap core JavaScript -->
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+                </script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+                </script>
 
 
 </body>

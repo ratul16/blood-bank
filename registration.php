@@ -36,7 +36,7 @@ include "Connect.php";
 
                         <li class="nav-item" role="presentation"><a class="nav-link" href="index.html" style="color:#ffffff;"><i class="fa fa-home"></i>&nbsp;Home</a></li>
 
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="doclist.php" style="color:#ffffff;"><i class="far fa-user-circle"></i>&nbsp;Doner</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="donorlist.php" style="color:#ffffff;"><i class="far fa-user-circle"></i>&nbsp;Doner</a></li>
 
                         <li class="nav-item" role="presentation"><a class="nav-link" href="registration.php" style="color:#ffffff;"><i class="fas fa-id-badge"></i>&nbsp;Registration</a></li>
 
@@ -147,7 +147,7 @@ include "Connect.php";
                 $query1 = "INSERT INTO donor (fname,lname,blood_group,phone,date,age,city)
             VALUES ('" . $_POST['fname'] . "','" . $_POST['lname'] . "','" . $_POST['blood_group'] . "','" . $_POST['phone'] . "','" . $_POST['date'] . "','" . $_POST['age'] . "','" . $_POST['city'] . "')";
 
-                $query2 =  "INSERT INTO login (email,password) VALUES ('" . $_POST['email'] . "','" .($_POST['password']) . "')";
+                $query2 =  "INSERT INTO login (email,password) VALUES ('" . $_POST['email'] . "','" . ($_POST['password']) . "')";
 
                 $query_run = mysqli_query($con, $query1) && mysqli_query($con, $query2);
                 if ($query_run) {
