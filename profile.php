@@ -115,17 +115,17 @@ $state = $retrive['state'];
 
     </div>
 
-
+    <br>
     <div class="card" id="post">
         <div class="card-header text-center text-danger">
             <strong>Blood Request</strong>
         </div>
         <div class="card-body">
-        <form action="filter.php" method="post">
+        <form action="post.php" method="post">
            <div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Name</label>
-                    <input type="Name" class="form-control" placeholder="Enter paitent's fullname">
+                    <input type="Name"  name="name" class="form-control" placeholder="Enter paitent's fullname">
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Urgency</label>
@@ -137,7 +137,7 @@ $state = $retrive['state'];
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Phone#</label>
-                    <input type="phone" class="form-control" placeholder="Enter phone number">
+                    <input type="phone" name="Phone" class="form-control" placeholder="Enter phone number">
                 </div>
                 <div class="form-group">
                     <label>Select Blood Group</label>
@@ -169,6 +169,10 @@ $state = $retrive['state'];
 
                 <div class="form-group">
                     <textarea class="form-control" name="discrip" rows="4" placeholder="Enter discription..."></textarea>
+                </div>
+                
+                <div>
+                <button type="submit" name="submitrequest" class="btn btn-success" value="Search"> Submit</button>
                 </div>
             </form>
         </div>
