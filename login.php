@@ -41,6 +41,8 @@ include "connect.php";
                         <li class="nav-item" role="presentation"><a class="nav-link" href="registration.php" style="color:#ffffff;"><i class="fas fa-id-badge"></i>&nbsp;Registration</a></li>
 
                         <li class="nav-item" role="presentation"><a class="nav-link text-monospace" href="login.php" style="color:#ffffff;"><i class="fas fa-user-shield"></i>&nbsp;Login</a></li>
+             
+                        <li class= "nav=item" role="presentation"><a class="nav-link" href="profile.php" style="color:#ffffff;"><i class="far fa-user"></i>&nbsp;Profile</a></li>
                     </ul>
                 </div>
             </div>

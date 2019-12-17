@@ -66,11 +66,14 @@ $state = $retrive['state'];
 
                         <li class="nav-item" role="presentation"><a class="nav-link" href="index.html" style="color:#ffffff;"><i class="fa fa-home"></i>&nbsp;Home</a></li>
 
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="donorlist.php" style="color:#ffffff;"><i class="far fa-user-circle"></i>&nbsp;Doner</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="donerlist.php" style="color:#ffffff;"><i class="far fa-user-circle"></i>&nbsp;Doner</a></li>
 
                         <li class="nav-item" role="presentation"><a class="nav-link" href="registration.php" style="color:#ffffff;"><i class="fas fa-id-badge"></i>&nbsp;Registration</a></li>
 
                         <li class="nav-item" role="presentation"><a class="nav-link text-monospace" href="login.php" style="color:#ffffff;"><i class="fas fa-user-shield"></i>&nbsp;Login</a></li>
+
+                        <li class= "nav=item" role="presentation"><a class="nav-link" href="profile.php" style="color:#ffffff;"><i class="far fa-user"></i>&nbsp;Profile</a></li>
+                                        
                     </ul>
                 </div>
             </div>
@@ -105,11 +108,11 @@ $state = $retrive['state'];
 
             </div>
             <div class="col-md-2">
-                <button id="logout" type="button" class="btn btn-danger"><a href="doctor.php" style="color:#ffffff;">Logout</a></button>
+                <button id="logout" type="button" class="btn btn-danger"><a href="index.html" style="color:#ffffff;">Logout</a></button>
             </div>
             <div class="col-md-2">
                 <small class="text-danger">Remove profile ? </small><br>
-                <button type="button" id="logout" class="btn btn-danger"><a href="doctor.php" style="color:#ffffff;">Delete</a></button>
+                <button type="button" id="logout" class="btn btn-danger"><a href="index.html" style="color:#ffffff;">Delete</a></button>
             </div>
         </div>
 
