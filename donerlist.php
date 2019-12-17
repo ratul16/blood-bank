@@ -61,9 +61,9 @@
                             <table class="table table-hover table-responsive-md text-center">
 
                                 <div class="input-group mb-3">
-                                    <select id="inputState" class="form-control" name="filter">
+                                    <select id="inputState" action="filter.php" method="POST" class="form-control" name="filter" >
                                         <option selected>Filter</option>
-                                        <option value="Yes">Avaiable</option>
+                                        <option name="Available" type="submit" class="searchbutton" value="Yes">Available</option>
                                         <option value="A+">A+</option>
                                         <option value="A-">A-</option>
                                         <option value="B+">B+</option>
@@ -89,7 +89,7 @@
                                     <tr>
                                         <td style="width:600px;">Ramiza Maliha</td>
                                         <td style="width:400px;">demo@gmail.com</td>
-                                        <td style="width:300px;">B+</td>
+                                        <td style="width:300px;">O+</td>
                                         <td style="width:400px;">Kakrail</td>
                                         <td style="width:600px;">01657854494</td>
                                         <td style="width:200px;">Yes</td>
