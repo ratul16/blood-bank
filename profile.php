@@ -125,9 +125,12 @@ include_once "Connect.php";
 if(isset($_POST['delete']))
 {
    //echo '<script type="text/javascript"> alert("Searched !!")</script>';
-   $delete = $id;
-   $querys = "Delete FROM donor where uid Like '$delete'";
-   $query_run = mysqli_query($con,$querys);
+    $delete = $id;
+    $querys = "Delete FROM donor where uid Like '$delete'";
+    $query2 = "Delete FROM login where id Like '$delete'";
+
+    $query_run = mysqli_query($con, $querys) && mysqli_query($con, $query2);
+
    if ($query_run) {
     echo '<script type="text/javascript"> alert("Member Deleted Successfully !! Click home to leave this page")</script>';
 } else {
