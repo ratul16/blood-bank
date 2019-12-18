@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 17, 2019 at 10:04 AM
+-- Generation Time: Dec 18, 2019 at 04:43 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -102,7 +102,35 @@ INSERT INTO `donor_backup` (`uId`, `fname`, `lname`, `age`, `sex`, `blood_group`
 (5, 'Mahira', 'Jalisha', 22, 'Female', 'O+', '1843927943', '0000-00-00', 'Dhaka', 'Yes', 'wonderer who is Wondering about the wondering world'),
 (6, 'Nahid', 'Ontu', 24, 'Male', 'B+', '1676800456', '0000-00-00', 'Dhaka', 'No', 'Life has so many stories to tell'),
 (7, 'Faria', 'Islam', 24, 'Female', 'A+', '1554697826', '0000-00-00', 'Kushtia', 'No', 'No Comments'),
-(8, 'Tahmid', 'Abrar', 26, 'Male', 'AB+', '1478596235', '0000-00-00', 'Joypurhat', 'No', 'I had a dream');
+(8, 'Tahmid', 'Abrar', 26, 'Male', 'AB+', '1478596235', '0000-00-00', 'Joypurhat', 'No', 'I had a dream'),
+(0, 'Naruto', 'Uzumaki', 26, 'Male', '', '01552646799', '1994-10-13', 'Chittagong', 'Yes', 'DATTEBAYOOOOO!!!!');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `donor_delete`
+--
+
+CREATE TABLE `donor_delete` (
+  `uId` int(7) NOT NULL,
+  `fname` varchar(255) NOT NULL,
+  `lname` varchar(255) NOT NULL,
+  `age` int(10) NOT NULL,
+  `sex` varchar(255) NOT NULL,
+  `blood_group` varchar(20) NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  `dob` date DEFAULT NULL,
+  `city` varchar(255) NOT NULL,
+  `state` varchar(100) NOT NULL,
+  `about` varchar(500) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `donor_delete`
+--
+
+INSERT INTO `donor_delete` (`uId`, `fname`, `lname`, `age`, `sex`, `blood_group`, `phone`, `dob`, `city`, `state`, `about`) VALUES
+(9, 'Naruto', 'Uzumaki', 26, 'Male', '', '01552646799', '1994-10-13', 'Chittagong', 'Yes', 'DATTEBAYOOOOO!!!!');
 
 -- --------------------------------------------------------
 
@@ -129,7 +157,8 @@ INSERT INTO `login` (`ID`, `uId`, `email`, `password`) VALUES
 (5, 5, 'mahira.jalishalol@nsu.edu', 'BakaNeko'),
 (6, 6, 'nahid.ontu299nsu.edu', 'barishaillanahid'),
 (7, 7, 'faria.punni@gmail.com', 'punni94'),
-(8, 8, 'tahmid_tousif@gmail.com', 'fisout');
+(8, 8, 'tahmid_tousif@gmail.com', 'fisout'),
+(9, 0, 'n_uzumaki@gmail.com', 'narutooo');
 
 -- --------------------------------------------------------
 
@@ -141,7 +170,6 @@ CREATE TABLE `post` (
   `P_id` int(5) NOT NULL,
   `Blood_G` varchar(20) NOT NULL,
   `Name` varchar(25) NOT NULL,
-  `Status` varchar(100) NOT NULL,
   `phone` varchar(20) NOT NULL,
   `city` varchar(255) NOT NULL,
   `urgency` varchar(100) NOT NULL,
@@ -152,10 +180,10 @@ CREATE TABLE `post` (
 -- Dumping data for table `post`
 --
 
-INSERT INTO `post` (`P_id`, `Blood_G`, `Name`, `Status`, `phone`, `city`, `urgency`, `S_Remark`) VALUES
-(1, 'O+', 'Bomkesh Bokshi', 'Needed', '01975684264', 'Dhaka', 'ASAP', 'Needs in 2 days.'),
-(2, 'A+', 'Robert Langdon', 'Needed', '01574598354', 'Dhaka', 'NO', 'Needed for an open heart surgery on. Due: 01/01/2020'),
-(3, 'O-', 'Anondo Kor', 'Found', '01235489753', 'Khulna', 'NO', 'The patient is now ok.');
+INSERT INTO `post` (`P_id`, `Blood_G`, `Name`, `phone`, `city`, `urgency`, `S_Remark`) VALUES
+(1, 'O+', 'Bomkesh Bokshi', '01975684264', 'Dhaka', 'ASAP', 'Needs in 2 days.'),
+(2, 'A+', 'Robert Langdon', '01574598354', 'Dhaka', 'NO', 'Needed for an open heart surgery on. Due: 01/01/2020'),
+(3, 'O-', 'Anondo Kor', '01235489753', 'Khulna', 'NO', 'The patient is now ok.');
 
 --
 -- Indexes for dumped tables
@@ -189,19 +217,19 @@ ALTER TABLE `post`
 -- AUTO_INCREMENT for table `donor`
 --
 ALTER TABLE `donor`
-  MODIFY `uId` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `uId` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `ID` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ID` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `P_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `P_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
