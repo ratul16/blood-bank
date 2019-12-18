@@ -52,7 +52,7 @@
 
        <div>
            <nav class="navbar navbar-light navbar-expand-md bg-dark navigation-clean-button">
-               <div class="container-fluid"><a class="navbar-brand text-white" href="index.html"><i class="fas fa-ambulance"></i>&nbsp;Blood Doner</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+               <div class="container-fluid"><a class="navbar-brand text-white" href="index.php"><i class="fas fa-ambulance"></i>&nbsp;Blood Doner</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                    <div class="collapse navbar-collapse" id="navcol-1">
                        <ul class="nav navbar-nav ml-auto">
                            <div id="searchbox">
@@ -62,7 +62,7 @@
                                    <input name="search" type="submit" class="searchbutton" value="Search" />
                            </div>
 
-                           <li class="nav-item" role="presentation"><a class="nav-link" href="index.html" style="color:#ffffff;"><i class="fa fa-home"></i>&nbsp;Home</a></li>
+                           <li class="nav-item" role="presentation"><a class="nav-link" href="index.php" style="color:#ffffff;"><i class="fa fa-home"></i>&nbsp;Home</a></li>
 
                            <li class="nav-item" role="presentation"><a class="nav-link" href="donorlist.php" style="color:#ffffff;"><i class="far fa-user-circle"></i>&nbsp;Doner</a></li>
 
@@ -113,7 +113,7 @@
                                                             }; ?>
                        </table>
                        <div>
-                           <button id="Back" type="button" class="btn btn-danger"><a href="index.html" style="color:#eeeee;"><strong>BACK</strong></a></button>
+                           <button id="Back" type="button" class="btn btn-danger"><a href="index.php" style="color:#eeeee;"><strong>BACK</strong></a></button>
                        </div>
 
                    </div>

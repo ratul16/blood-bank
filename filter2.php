@@ -1,24 +1,30 @@
 <?php
-    include_once "Connect.php";
-        
-        $querys = "SELECT * FROM post ORDER BY P_id";
-        $query_run = mysqli_query($con,$querys);
-        if (mysqli_num_rows ($query_run)> 0) {
-            while ($result = $query_run -> fetch_assoc()) {
-               $name = $result['Name'];
-               $Remark = $result['S_Remark'];
-               $Urgent=$result['urgency'];
-               $Blood_G=$result['Blood_G'];
-               $Phone=$result['phone'];
-               $City=$result['city'];
-            }}
-         else{
-            echo "No resutls";
-         }
-         
-
-        ?>
-
+   include_once "Connect.php";
+   ?>
+   <?php
+      if(isset($_POST['filter']))
+      {
+         //echo '<script type="text/javascript"> alert("Searched !!")</script>';
+         $location = $_POST['city'];
+         $Blood= $_POST['Blood_Group'];
+         $querys = "SELECT * from post where Blood_G Like '%$Blood%' or city Like '%$location%' ";
+         $query_run = mysqli_query($con,$querys);
+if (mysqli_num_rows ($query_run)> 0) {
+   while ($result = $query_run -> fetch_assoc()) {
+    $name = $result['Name'];
+    $Remark = $result['S_Remark'];
+    $Urgent=$result['urgency'];
+    $Blood_G=$result['Blood_G'];
+    $Phone=$result['phone'];
+    $City=$result['city'];
+          
+    }
+}
+else {
+   echo "No resutls";
+}
+   }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -58,8 +64,7 @@
                      <form id="spage" action="search.php" method="POST">
                      <input name="name" type="text" class="searchinput" autocomplete="off" placeholder="Name or Blood group"/>
                     
-                     <input name="search" type="submit" class="searchbutton" value="Search"/>
-                    </form>
+                     <input name="search" type="submit" class="searchbutton" value="Search" />
                     </div>
                     
 
@@ -82,54 +87,10 @@
             </div>
         </nav>
     </div>
- <div>
-       
-<br>
-<div class="container">
-                <div id="doner-info">
-                    <div class="card">
-                        <div class="card-body">
-                            <h3 class="card-title text-center text-danger text-uppercase">Blood Request</h3><br>
-                            <form action="filter2.php" method="POST" >
-                            <div class="input-group mb-3">
-                            <select id="inputState" class="form-control" name="city">
-                              <option selected>Select area</option>
-                              <option>Dhaka</option>
-                              <option>Khulna</option>
-                              <option>Sylhet</option>
-                              <option>Chittagong</option>
-                              <option>Rajshahi</option>
-                              <option>Barisal</option>
-                              <option>Rangpur</option>
-                            </select>
-                             </div>
-                             <div class="input-group mb-3">
-                            <select id="inputState" class="form-control" name="Blood_Group" >
-                              <option selected>Select Blood Group</option>
-                              <option>A+</option>
-                              <option>A-</option>
-                              <option>B+</option>
-                              <option>B-</option>
-                              <option>O+</option>
-                              <option>O-</option>
-                              <option>AB+</option>
-                              <option>AB-</option>
-                            </select>
-                             </div>
-                             
-                            <button type="submit" name="filter" class="btn btn-danger" value="filter">Submit</button>
-                            </form>
-                            
-                        </div>
-                       
-                    </div>
-                    
-                </div>
-                
-            </div>
-
-    <br>
-<br>  
+ <div>   
+   
+  <br>
+  <br>  
  <?php   
      $sl=1;
     foreach ($query_run as $value){?>
@@ -154,11 +115,13 @@
  <?php 
  $sl++; }; ?>
   
-</div>
+  <br>
+        <div class="container">
+            <button id="Back" type="button" class="btn btn-danger"><a href="index.php" style="color:#ffffff;"><strong>BACK</strong></a></button>
+        </div>
 
+    </div>
 
-
-                            
     <!-- Footer -->
     <footer class="page-footer font-small blue pt-4">
         <!-- Footer Links -->

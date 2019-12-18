@@ -30,11 +30,11 @@ include "Connect.php";
 
     <div>
         <nav class="navbar navbar-light navbar-expand-md bg-dark navigation-clean-button">
-            <div class="container-fluid"><a class="navbar-brand text-white" href="index.html"><i class="fas fa-ambulance"></i>&nbsp;Blood Doner</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="container-fluid"><a class="navbar-brand text-white" href="index.php"><i class="fas fa-ambulance"></i>&nbsp;Blood Doner</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navcol-1">
                     <ul class="nav navbar-nav ml-auto">
 
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="index.html" style="color:#ffffff;"><i class="fa fa-home"></i>&nbsp;Home</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="index.php" style="color:#ffffff;"><i class="fa fa-home"></i>&nbsp;Home</a></li>
 
                         <li class="nav-item" role="presentation"><a class="nav-link" href="donorlist.php" style="color:#ffffff;"><i class="far fa-user-circle"></i>&nbsp;Doner</a></li>
 
@@ -107,11 +107,13 @@ include "Connect.php";
                 <div class="input-group mb-3">
                     <select id="inputState" class="form-control" name="area">
                         <option value="blank" selected>Select area</option>
-                        <option value="Gulshan">Gulshan</option>
-                        <option value="Banani">Banani</option>
-                        <option value="Uttara">Uttara</option>
-                        <option value="Mirpur">Mirpur</option>
-                        <option value="Dhanmondi">Dhanmondi</option>
+                              <option value="Dhaka">Dhaka</option>
+                              <option value="Khulna">Khulna</option>
+                              <option value="Sylhet">Sylhet</option>
+                              <option value="Chittagong">Chittagong</option>
+                              <option value="Rajshahi">Rajshahi</option>
+                              <option value="Barisal">Barisal</option>
+                              <option value="Rangpur">Rangpur</option>
                     </select>
                 </div>
 

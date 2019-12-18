@@ -8,8 +8,8 @@
          $location = $_POST['city'];
          $Blood= $_POST['Blood_Group'];
          $Stat=$_POST['Available'];
-         echo $Stat;
-         $querys = "SELECT * from donor where blood_group Like '%$Blood%' or city Like '%$location%' or state Like '%$Stat%'";
+         
+         $querys = "SELECT * from donor where blood_group Like '%$Blood%' or city Like '%$location%'";
          $query_run = mysqli_query($con,$querys);
 if (mysqli_num_rows ($query_run)> 0) {
    while ($result = $query_run -> fetch_assoc()) {

@@ -39,13 +39,20 @@ One proposed solution for this specific problem is to develop a management syste
 5. **Donor List :**
      * `"SELECT d.fname, d.lname, d.age, d.sex, d.blood_group, d.phone, d.city, d.state, l.email FROM donor d NATURAL JOIN login l ORDER BY blood_group DESC"`
 6. **Filter :**
-   * ` `
+   * `"SELECT * from donor where blood_group Like '%$Blood%' or city Like '%$location%'";`
+   * `"SELECT * from post where Blood_G Like '%$Blood%' or city Like '%$location%' ";`
 7. **Post :**
-   * ` `
+   * `"INSERT INTO post (Blood_G, Name, phone, city, urgency, S_Remark) VALUES ('$Blood_G','$name','$Phone','$City','$Urgent','$Remark')";`
+   * ` "INSERT INTO post (Blood_G, Name, phone, city, urgency, S_Remark) VALUES ('$Blood_G','$name','$Phone','$City','$Urgent','$Remark')";`
+
 
 8. **Trigger :**
    * `CREATE TRIGGER `donor_backup` BEFORE INSERT ON `donor` FOR EACH ROW INSERT INTO donor_backup VALUES (NEW.uId,NEW.fname,NEW.lname,NEW.age,NEW.sex,NEW.blood_group,NEW.phone,NEW.dob,NEW.city,NEW.state,NEW.about)`
    * `CREATE TRIGGER `donor_delete` BEFORE DELETE ON `donor`FOR EACH ROW BEGIN INSERT INTO donor_delete VALUES (old.uId,old.fname,old.lname,old.age,old.sex,old.blood_group,old.phone,old.dob,old.city,old.state,old.about); END`
+
+9. **Delete :**
+   * `"Delete FROM donor where uid Like '$delete'"`
+
 
 ##**Contribution :**
 1. [Israt Jahan Diya](https://github.com/diyaa222)
