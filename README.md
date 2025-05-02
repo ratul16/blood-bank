@@ -117,7 +117,7 @@ One proposed solution for this specific problem is to develop a management syste
 
 12. **Database Table data insert: **
      * 'INSERT INTO `donor` (`uId`, `fname`, `lname`, `age`, `sex`, `blood_group`, `phone`, `dob`, `city`, `state`, `about`) VALUES
-(1, 'Hasibul Alam', 'Ratul', 25, 'Male', 'O-', '01730482775', '1994-09-16', 'Dhaka', 'Yes', 'Calm'),
+(1, 'Hasibul Alam', 'Ratul', 25, 'Male', 'O-', '01730762775', '1990-23-16', 'Dhaka', 'Yes', 'Calm'),
 (2, 'Ishrat', 'Diya', 24, 'Female', 'B+', '01686660052', '1995-04-16', 'Dhaka', 'No', 'Keep calm and donate blood'),
 (3, 'Ramiza', 'Maliha', 24, 'Female', 'O+', '01837542987', '1996-10-14', 'Chittagong', 'Yes', 'Carpe Diem!'),
 (4, 'Sadia', 'Sheikh', 23, 'Female', 'A+', '01554876254', '1997-06-14', 'Dhaka', 'No', 'Need blood? contact me'),
